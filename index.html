@@ -1,493 +1,577 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spring 2026 Schedule</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring 2026 Schedule</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  :root {
-    --bg: #0f1117;
-    --surface: #181a22;
-    --border: #2a2d3a;
-    --text: #e8e9ed;
-    --text-dim: #8b8fa3;
-    --accent: #6c63ff;
+    :root {
+      --bg: #0f1117;
+      --surface: #181a22;
+      --border: #2a2d3a;
+      --border-light: #1e2029;
+      --text: #e8e9ed;
+      --text-dim: #8b8fa3;
+      --accent: #6c63ff;
 
-    /* Course colors */
-    --comp-bg: #1a2332;
-    --comp-border: #2e6bb5;
-    --comp-text: #7cb8f7;
-    --comp-accent: #4a9eff;
+      --comp-bg: #1a2332;
+      --comp-border: #2e6bb5;
+      --comp-text: #7cb8f7;
+      --comp-accent: #4a9eff;
 
-    --games-bg: #1f2a1e;
-    --games-border: #4a8c44;
-    --games-text: #8ed488;
-    --games-accent: #5cbf54;
+      --games-bg: #1f2a1e;
+      --games-border: #4a8c44;
+      --games-text: #8ed488;
+      --games-accent: #5cbf54;
 
-    --musc-bg: #2a1f2e;
-    --musc-border: #8c4a8c;
-    --musc-text: #d48ed4;
-    --musc-accent: #bf54bf;
+      --musc-bg: #2a1f2e;
+      --musc-border: #8c4a8c;
+      --musc-text: #d48ed4;
+      --musc-accent: #bf54bf;
 
-    --wrtg-bg: #2a2518;
-    --wrtg-border: #a68332;
-    --wrtg-text: #e4c56a;
-    --wrtg-accent: #d4a83a;
+      --wrtg-bg: #2a2518;
+      --wrtg-border: #a68332;
+      --wrtg-text: #e4c56a;
+      --wrtg-accent: #d4a83a;
 
-    --math-bg: #1a2a2a;
-    --math-border: #3a8c8c;
-    --math-text: #6ad4d4;
-    --math-accent: #44b8b8;
+      --math-bg: #1a2a2a;
+      --math-border: #3a8c8c;
+      --math-text: #6ad4d4;
+      --math-accent: #44b8b8;
 
-    --quest-bg: #2a1a1e;
-    --quest-border: #b54a4a;
-    --quest-text: #f08080;
-    --quest-accent: #e05555;
-  }
+      --quest-bg: #2a1a1e;
+      --quest-border: #b54a4a;
+      --quest-text: #f08080;
+      --quest-accent: #e05555;
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    min-height: 100vh;
-    padding: 32px;
-  }
+      --hour: 80px;
+    }
 
-  .header {
-    text-align: center;
-    margin-bottom: 36px;
-    position: relative;
-  }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      padding: 32px;
+    }
 
-  .header::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), #a78bfa);
-    margin: 16px auto 0;
-    border-radius: 2px;
-  }
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
 
-  .header h1 {
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #e8e9ed 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #a78bfa);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
 
-  .header .subtitle {
-    font-size: 14px;
-    color: var(--text-dim);
-    margin-top: 6px;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+    .header h1 {
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #e8e9ed 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  .schedule-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow-x: auto;
-  }
+    .header .subtitle {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-top: 6px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-  .schedule {
-    display: grid;
-    grid-template-columns: 72px repeat(5, 1fr);
-    grid-template-rows: auto;
-    gap: 1px;
-    background: var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    min-width: 700px;
-    border: 1px solid var(--border);
-  }
+    .schedule-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
 
-  .day-header {
-    background: var(--surface);
-    padding: 14px 8px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    border-bottom: 2px solid var(--border);
-  }
+    .timetable {
+      display: grid;
+      grid-template-columns: 64px repeat(5, 1fr);
+      min-width: 700px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
 
-  .day-header.corner {
-    background: var(--surface);
-  }
+    .day-header {
+      background: var(--surface);
+      padding: 14px 8px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+    }
 
-  .time-label {
-    background: var(--surface);
-    padding: 0 10px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    padding-top: 10px;
-    font-weight: 400;
-    min-height: 70px;
-  }
+    .time-column {
+      background: var(--surface);
+      position: relative;
+      border-right: 1px solid var(--border);
+    }
 
-  .cell {
-    background: var(--bg);
-    min-height: 70px;
-    padding: 4px;
-    position: relative;
-  }
+    .time-tick {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 400;
+      transform: translateY(-8px);
+    }
 
-  .course-block {
-    border-radius: 10px;
-    padding: 8px 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-left: 3px solid;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: default;
-    animation: fadeIn 0.5s ease both;
-  }
+    .day-column {
+      position: relative;
+      background: var(--bg);
+      border-right: 1px solid var(--border-light);
+    }
 
-  .course-block:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    z-index: 10;
-  }
+    .day-column:last-child {
+      border-right: none;
+    }
 
-  .course-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03), transparent);
-    pointer-events: none;
-  }
+    .hour-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border-light);
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    .course-block {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      border-radius: 10px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 3px solid;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default;
+      animation: fadeIn 0.5s ease both;
+      z-index: 2;
+    }
 
-  .course-block .code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    margin-bottom: 2px;
-    letter-spacing: 0.5px;
-  }
+    .course-block:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
 
-  .course-block .name {
-    font-size: 11px;
-    font-weight: 300;
-    opacity: 0.8;
-    line-height: 1.3;
-  }
+    .course-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.03), transparent);
+      pointer-events: none;
+    }
 
-  .course-block .room {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    opacity: 0.6;
-    margin-top: 3px;
-    letter-spacing: 0.5px;
-  }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
 
-  /* Course-specific styles */
-  .comp { background: var(--comp-bg); border-color: var(--comp-border); }
-  .comp .code { color: var(--comp-accent); }
-  .comp .name { color: var(--comp-text); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .games { background: var(--games-bg); border-color: var(--games-border); }
-  .games .code { color: var(--games-accent); }
-  .games .name { color: var(--games-text); }
+    .course-block .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 1px;
+      letter-spacing: 0.5px;
+    }
 
-  .musc { background: var(--musc-bg); border-color: var(--musc-border); }
-  .musc .code { color: var(--musc-accent); }
-  .musc .name { color: var(--musc-text); }
+    .course-block .name {
+      font-size: 10px;
+      font-weight: 300;
+      opacity: 0.8;
+      line-height: 1.3;
+    }
 
-  .wrtg { background: var(--wrtg-bg); border-color: var(--wrtg-border); }
-  .wrtg .code { color: var(--wrtg-accent); }
-  .wrtg .name { color: var(--wrtg-text); }
+    .course-block .room {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      opacity: 0.6;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
 
-  .math { background: var(--math-bg); border-color: var(--math-border); }
-  .math .code { color: var(--math-accent); }
-  .math .name { color: var(--math-text); }
+    .comp {
+      background: var(--comp-bg);
+      border-color: var(--comp-border);
+    }
 
-  .quest { background: var(--quest-bg); border-color: var(--quest-border); }
-  .quest .code { color: var(--quest-accent); }
-  .quest .name { color: var(--quest-text); }
+    .comp .code {
+      color: var(--comp-accent);
+    }
 
-  .empty-cell {
-    min-height: 70px;
-  }
+    .comp .name {
+      color: var(--comp-text);
+    }
 
-  /* Tall cells for long classes */
-  .tall { min-height: 105px; }
-  .cell.tall { min-height: 105px; }
-  .time-label.tall { min-height: 105px; }
+    .games {
+      background: var(--games-bg);
+      border-color: var(--games-border);
+    }
 
-  /* Legend */
-  .legend {
-    max-width: 1100px;
-    margin: 24px auto 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
+    .games .code {
+      color: var(--games-accent);
+    }
 
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    background: var(--surface);
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    font-size: 12px;
-    font-weight: 400;
-  }
+    .games .name {
+      color: var(--games-text);
+    }
 
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-  }
+    .musc {
+      background: var(--musc-bg);
+      border-color: var(--musc-border);
+    }
 
-  .legend-credits {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-  }
+    .musc .code {
+      color: var(--musc-accent);
+    }
 
-  .total-credits {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--text-dim);
-    font-weight: 300;
-  }
+    .musc .name {
+      color: var(--musc-text);
+    }
 
-  .total-credits span {
-    color: var(--accent);
-    font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
-  }
+    .wrtg {
+      background: var(--wrtg-bg);
+      border-color: var(--wrtg-border);
+    }
 
-  /* Animation delays */
-  .course-block:nth-child(1) { animation-delay: 0.05s; }
-  .cell:nth-child(2) .course-block { animation-delay: 0.1s; }
-  .cell:nth-child(3) .course-block { animation-delay: 0.15s; }
-  .cell:nth-child(4) .course-block { animation-delay: 0.2s; }
-  .cell:nth-child(5) .course-block { animation-delay: 0.25s; }
-</style>
+    .wrtg .code {
+      color: var(--wrtg-accent);
+    }
+
+    .wrtg .name {
+      color: var(--wrtg-text);
+    }
+
+    .math {
+      background: var(--math-bg);
+      border-color: var(--math-border);
+    }
+
+    .math .code {
+      color: var(--math-accent);
+    }
+
+    .math .name {
+      color: var(--math-text);
+    }
+
+    .quest {
+      background: var(--quest-bg);
+      border-color: var(--quest-border);
+    }
+
+    .quest .code {
+      color: var(--quest-accent);
+    }
+
+    .quest .name {
+      color: var(--quest-text);
+    }
+
+    .legend {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--surface);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-credits {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+
+    .total-credits {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .total-credits span {
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="header">
-  <h1>Spring 2026 Schedule</h1>
-  <div class="subtitle">University of Utah Asia Campus</div>
-</div>
+  <div class="header">
+    <h1>Spring 2026 Schedule</h1>
+    <div class="subtitle">University of Utah Asia Campus</div>
+  </div>
 
-<div class="schedule-wrapper">
-<div class="schedule">
+  <!--
+  Time grid: 9AM - 6PM = 9 hours, 80px/hour = 720px total
+  9:00=0  10:00=80  11:00=160  12:00=240  1:00=320  2:00=400  3:00=480  4:00=560  5:00=640  6:00=720
 
-  <!-- Header Row -->
-  <div class="day-header corner"></div>
-  <div class="day-header">Mon</div>
-  <div class="day-header">Tue</div>
-  <div class="day-header">Wed</div>
-  <div class="day-header">Thu</div>
-  <div class="day-header">Fri</div>
+  QUEST 1120   9:00-10:20  top:0     h:106.7
+  COMP Lec     11:00-11:50 top:160   h:66.7
+  COMP Lab     11:00-11:50 top:160   h:66.7
+  GAMES 1010   1:00-2:20   top:320   h:106.7
+  WRTG 1010    1:00-2:20   top:320   h:106.7
+  MUSC 1250    2:30-3:50   top:440   h:106.7
+  MATH 1040    4:00-5:20   top:560   h:106.7
+-->
 
-  <!-- 9:00 - 10:20 -->
-  <div class="time-label tall">9:00</div>
+  <div class="schedule-wrapper">
+    <div class="timetable">
 
-  <div class="cell tall"></div>
+      <div class="day-header" style="border-right:1px solid var(--border)"></div>
+      <div class="day-header">Mon</div>
+      <div class="day-header">Tue</div>
+      <div class="day-header">Wed</div>
+      <div class="day-header">Thu</div>
+      <div class="day-header">Fri</div>
 
-  <div class="cell tall">
-    <div class="course-block quest">
-      <div class="code">QUEST 1120</div>
-      <div class="name">Quest</div>
-      <div class="room">U310</div>
+      <!-- Time Column -->
+      <div class="time-column" style="height:720px">
+        <div class="time-tick" style="top:0">9 AM</div>
+        <div class="time-tick" style="top:80px">10</div>
+        <div class="time-tick" style="top:160px">11</div>
+        <div class="time-tick" style="top:240px">12 PM</div>
+        <div class="time-tick" style="top:320px">1</div>
+        <div class="time-tick" style="top:400px">2</div>
+        <div class="time-tick" style="top:480px">3</div>
+        <div class="time-tick" style="top:560px">4</div>
+        <div class="time-tick" style="top:640px">5</div>
+      </div>
+
+      <!-- Monday -->
+      <div class="day-column" style="height:720px">
+        <div class="hour-line" style="top:80px"></div>
+        <div class="hour-line" style="top:160px"></div>
+        <div class="hour-line" style="top:240px"></div>
+        <div class="hour-line" style="top:320px"></div>
+        <div class="hour-line" style="top:400px"></div>
+        <div class="hour-line" style="top:480px"></div>
+        <div class="hour-line" style="top:560px"></div>
+        <div class="hour-line" style="top:640px"></div>
+
+        <div class="course-block comp" style="top:160px;height:67px">
+          <div class="code">COMP 1010</div>
+          <div class="name">Lecture</div>
+          <div class="room">UAC 411</div>
+        </div>
+
+        <div class="course-block games" style="top:320px;height:107px;animation-delay:.1s">
+          <div class="code">GAMES 1010</div>
+          <div class="name">Survey of Games</div>
+          <div class="room">UAC 508</div>
+        </div>
+      </div>
+
+      <!-- Tuesday -->
+      <div class="day-column" style="height:720px">
+        <div class="hour-line" style="top:80px"></div>
+        <div class="hour-line" style="top:160px"></div>
+        <div class="hour-line" style="top:240px"></div>
+        <div class="hour-line" style="top:320px"></div>
+        <div class="hour-line" style="top:400px"></div>
+        <div class="hour-line" style="top:480px"></div>
+        <div class="hour-line" style="top:560px"></div>
+        <div class="hour-line" style="top:640px"></div>
+
+        <div class="course-block quest" style="top:0;height:107px">
+          <div class="code">QUEST 1120</div>
+          <div class="name">EPS Decision-Making</div>
+          <div class="room">UAC 310</div>
+        </div>
+
+        <div class="course-block comp" style="top:160px;height:67px;animation-delay:.05s">
+          <div class="code">COMP 1010</div>
+          <div class="name">Lecture</div>
+          <div class="room">UAC 411</div>
+        </div>
+
+        <div class="course-block wrtg" style="top:320px;height:107px;animation-delay:.1s">
+          <div class="code">WRTG 1010</div>
+          <div class="name">Intro to Writing</div>
+          <div class="room">UAC 308</div>
+        </div>
+
+        <div class="course-block musc" style="top:440px;height:107px;animation-delay:.15s">
+          <div class="code">MUSC 1250</div>
+          <div class="name">World Music</div>
+          <div class="room">UAC 410</div>
+        </div>
+
+        <div class="course-block math" style="top:560px;height:107px;animation-delay:.2s">
+          <div class="code">MATH 1040</div>
+          <div class="name">Intro to Statistics</div>
+          <div class="room">UAC 305</div>
+        </div>
+      </div>
+
+      <!-- Wednesday -->
+      <div class="day-column" style="height:720px">
+        <div class="hour-line" style="top:80px"></div>
+        <div class="hour-line" style="top:160px"></div>
+        <div class="hour-line" style="top:240px"></div>
+        <div class="hour-line" style="top:320px"></div>
+        <div class="hour-line" style="top:400px"></div>
+        <div class="hour-line" style="top:480px"></div>
+        <div class="hour-line" style="top:560px"></div>
+        <div class="hour-line" style="top:640px"></div>
+
+        <div class="course-block comp" style="top:160px;height:67px;border-color:#1e5a9e">
+          <div class="code">COMP 1010</div>
+          <div class="name">Lab</div>
+          <div class="room">UAC 505</div>
+        </div>
+
+        <div class="course-block games" style="top:320px;height:107px;animation-delay:.1s">
+          <div class="code">GAMES 1010</div>
+          <div class="name">Survey of Games</div>
+          <div class="room">UAC 508</div>
+        </div>
+      </div>
+
+      <!-- Thursday -->
+      <div class="day-column" style="height:720px">
+        <div class="hour-line" style="top:80px"></div>
+        <div class="hour-line" style="top:160px"></div>
+        <div class="hour-line" style="top:240px"></div>
+        <div class="hour-line" style="top:320px"></div>
+        <div class="hour-line" style="top:400px"></div>
+        <div class="hour-line" style="top:480px"></div>
+        <div class="hour-line" style="top:560px"></div>
+        <div class="hour-line" style="top:640px"></div>
+
+        <div class="course-block quest" style="top:0;height:107px">
+          <div class="code">QUEST 1120</div>
+          <div class="name">EPS Decision-Making</div>
+          <div class="room">UAC 310</div>
+        </div>
+
+        <div class="course-block wrtg" style="top:320px;height:107px;animation-delay:.1s">
+          <div class="code">WRTG 1010</div>
+          <div class="name">Intro to Writing</div>
+          <div class="room">UAC 308</div>
+        </div>
+
+        <div class="course-block musc" style="top:440px;height:107px;animation-delay:.15s">
+          <div class="code">MUSC 1250</div>
+          <div class="name">World Music</div>
+          <div class="room">UAC 410</div>
+        </div>
+
+        <div class="course-block math" style="top:560px;height:107px;animation-delay:.2s">
+          <div class="code">MATH 1040</div>
+          <div class="name">Intro to Statistics</div>
+          <div class="room">UAC 305</div>
+        </div>
+      </div>
+
+      <!-- Friday -->
+      <div class="day-column" style="height:720px">
+        <div class="hour-line" style="top:80px"></div>
+        <div class="hour-line" style="top:160px"></div>
+        <div class="hour-line" style="top:240px"></div>
+        <div class="hour-line" style="top:320px"></div>
+        <div class="hour-line" style="top:400px"></div>
+        <div class="hour-line" style="top:480px"></div>
+        <div class="hour-line" style="top:560px"></div>
+        <div class="hour-line" style="top:640px"></div>
+      </div>
+
     </div>
   </div>
 
-  <div class="cell tall"></div>
-
-  <div class="cell tall">
-    <div class="course-block quest">
-      <div class="code">QUEST 1120</div>
-      <div class="name">Quest</div>
-      <div class="room">U310</div>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--comp-accent)"></div>
+      COMP 1010 <span class="legend-credits">3cr</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--games-accent)"></div>
+      GAMES 1010 <span class="legend-credits">3cr</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--musc-accent)"></div>
+      MUSC 1250 <span class="legend-credits">3cr</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--wrtg-accent)"></div>
+      WRTG 1010 <span class="legend-credits">3cr</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--math-accent)"></div>
+      MATH 1040 <span class="legend-credits">3cr</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--quest-accent)"></div>
+      QUEST 1120 <span class="legend-credits">3cr</span>
     </div>
   </div>
 
-  <div class="cell tall"></div>
-
-  <!-- 11:00 - 11:50 -->
-  <div class="time-label">11:00</div>
-
-  <div class="cell">
-    <div class="course-block comp">
-      <div class="code">COMP 1010</div>
-      <div class="name">Lecture</div>
-      <div class="room">U411</div>
-    </div>
+  <div class="total-credits">
+    Total: <span>18</span> credits &nbsp;·&nbsp; 7 courses
   </div>
-
-  <div class="cell">
-    <div class="course-block comp">
-      <div class="code">COMP 1010</div>
-      <div class="name">Lecture</div>
-      <div class="room">U411</div>
-    </div>
-  </div>
-
-  <div class="cell">
-    <div class="course-block comp" style="border-color: #1e5a9e;">
-      <div class="code">COMP 1010</div>
-      <div class="name">Lab</div>
-      <div class="room">U505</div>
-    </div>
-  </div>
-
-  <div class="cell"></div>
-  <div class="cell"></div>
-
-  <!-- 1:00 - 2:20 -->
-  <div class="time-label tall">1:00</div>
-
-  <div class="cell tall">
-    <div class="course-block games">
-      <div class="code">GAMES 1010</div>
-      <div class="name">Survey of Games</div>
-      <div class="room">UAC 508</div>
-    </div>
-  </div>
-
-  <div class="cell tall">
-    <div class="course-block wrtg">
-      <div class="code">WRTG 1010</div>
-      <div class="name">Intro to Writing</div>
-      <div class="room">U308</div>
-    </div>
-  </div>
-
-  <div class="cell tall">
-    <div class="course-block games">
-      <div class="code">GAMES 1010</div>
-      <div class="name">Survey of Games</div>
-      <div class="room">UAC 508</div>
-    </div>
-  </div>
-
-  <div class="cell tall">
-    <div class="course-block wrtg">
-      <div class="code">WRTG 1010</div>
-      <div class="name">Intro to Writing</div>
-      <div class="room">U308</div>
-    </div>
-  </div>
-
-  <div class="cell tall"></div>
-
-  <!-- 2:30 - 3:50 -->
-  <div class="time-label tall">2:30</div>
-
-  <div class="cell tall">
-    <div class="course-block musc">
-      <div class="code">MUSC 1010</div>
-      <div class="name">Intro to Music</div>
-      <div class="room">UAC 410</div>
-    </div>
-  </div>
-
-  <div class="cell tall"></div>
-
-  <div class="cell tall">
-    <div class="course-block musc">
-      <div class="code">MUSC 1010</div>
-      <div class="name">Intro to Music</div>
-      <div class="room">UAC 410</div>
-    </div>
-  </div>
-
-  <div class="cell tall"></div>
-  <div class="cell tall"></div>
-
-  <!-- 4:00 - 5:20 -->
-  <div class="time-label tall">4:00</div>
-
-  <div class="cell tall"></div>
-
-  <div class="cell tall">
-    <div class="course-block math">
-      <div class="code">MATH 1040</div>
-      <div class="name">Intro to Statistics</div>
-      <div class="room">U305</div>
-    </div>
-  </div>
-
-  <div class="cell tall"></div>
-
-  <div class="cell tall">
-    <div class="course-block math">
-      <div class="code">MATH 1040</div>
-      <div class="name">Intro to Statistics</div>
-      <div class="room">U305</div>
-    </div>
-  </div>
-
-  <div class="cell tall"></div>
-
-</div>
-</div>
-
-<!-- Legend -->
-<div class="legend">
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--comp-accent);"></div>
-    COMP 1010 <span class="legend-credits">4cr</span>
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--games-accent);"></div>
-    GAMES 1010 <span class="legend-credits">3cr</span>
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--musc-accent);"></div>
-    MUSC 1010 <span class="legend-credits">3cr</span>
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--wrtg-accent);"></div>
-    WRTG 1010 <span class="legend-credits">3cr</span>
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--math-accent);"></div>
-    MATH 1040 <span class="legend-credits">3cr</span>
-  </div>
-  <div class="legend-item">
-    <div class="legend-dot" style="background: var(--quest-accent);"></div>
-    QUEST 1120 <span class="legend-credits">3cr</span>
-  </div>
-</div>
-
-<div class="total-credits">
-  Total: <span>19</span> credits &nbsp;·&nbsp; 7 courses
-</div>
 
 </body>
+
 </html>
